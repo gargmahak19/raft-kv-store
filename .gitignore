@@ -57,6 +57,7 @@ compile_commands.json
 *.log
 *.bak
 *.swp
+problemStaement.txt
 
 # vcpkg
 vcpkg_installed/
@@ -67,3 +68,19 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+.vscode/c_cpp_properties.json
+.gitignore
+.gitignore
+# Compiled binaries
+*.exe
+*.o
+*.out
+output/
+
+# Editor config
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
