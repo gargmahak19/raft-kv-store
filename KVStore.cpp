@@ -1,21 +1,3 @@
-/* -----------------------PROBLEM Statementr 1----------------------------------------
-Write a C++ class called KVStore that can store, retrieve, and delete string key-value pairs in memory. A client should be able to call put("city", "pune"), then get("city") and receive "pune" back. Calling get on a key that doesn't exist should signal that clearly — not crash.
-
-Constraints
-
-Keys and values are both
-std::string
-get
-must handle missing keys gracefully — think about what C++ type lets you return "either a value or nothing"
-Multiple threads may call these methods simultaneously — it must not corrupt data
-Write a
-size()
-method that returns how many keys are stored
-Think about first
-
-What C++ container maps strings to strings? What does C++17 give you for "maybe has a value"? What primitive do you need to make it thread-safe?
-*/
-
 #include <iostream>
 #include <string>
 #include <unordered_map>
