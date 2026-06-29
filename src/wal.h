@@ -1,9 +1,18 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include <unordered_map>
+#include <optional>
+#include <mutex>
+#include <thread>
+#include <atomic>
 #include <vector>
 #include <fstream>
 #include <cstdint>
+#include <cstdio>
+
 using namespace std;
+
 
 // One entry in the log — what we read back during replay.
 struct WALEntry {
@@ -88,20 +97,3 @@ private:
     string filename;
     ofstream out;   // for appending
 };
-
-int main() {
-    {
-        WAL wal("WAtest.log");
-        wal.appendPut("city", "New York");
-        wal.appendPut("lang", "cpp");
-        wal.appendDelete("city");
-    }   // scope ends -> wal is destroyed -> file flushes and closes
-
-    // A fresh WAL object reopens the same file and replays it
-    WAL wal2("WAtest.log");
-    auto entries = wal2.readAll();
-    for (auto& e : entries)
-        cout << e.op << " | " << e.key << " | " << e.value << "\n";
-
-    return 0;
-}
